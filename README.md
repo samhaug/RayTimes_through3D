@@ -19,3 +19,8 @@ Three floats fomatted as such:
 (F10.3, F10.3, F10.3)                                                            
 
 Theoretical ttime, Tomographic ttime, ttime difference
+
+./do\_compile should produce executable
+
+When installing on other systems, change line 150 and line 441 of 
+/src/umich\_cj\_ttc.f90 to the path of the models directory.

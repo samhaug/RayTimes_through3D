@@ -147,7 +147,9 @@ program umich_cj_tcc
     if (PHASE /= 'P' .and. PHASE /= 'S') stop 'Unknown kind of Mantle tomography model'
 
     if (KFILE=='sph') then
-        open(unit=IIN,file='models/'//trim(THREE_D_MODEL)//'.sph',status='old',action='read',iostat=ier)
+        open(unit=IIN,file='/home/samhaug/RayTimes_through3D/models/'&
+             //trim(THREE_D_MODEL)//'.sph',status='old',&
+             action='read',iostat=ier)
         !open(unit=IIN,file=trim(THREE_D_MODEL)//'.sph',status='old',action='read',iostat=ier)
         if (ier /= 0) then
             write(*,*) 'Error opening "', trim(THREE_D_MODEL), '": ', ier
@@ -436,10 +438,11 @@ subroutine read_model(NK,NS,THREE_D_MODEL)
     double precision :: dummy(4)
     character(len=100) :: THREE_D_MODEL
 
-    open(unit=IIN,file='models/'//trim(THREE_D_MODEL)//'.sph',status='old',action='read',iostat=ier)
+    open(unit=IIN,file='/home/samhaug/RayTimes_through3D/models/'&
+        //trim(THREE_D_MODEL)//'.sph',status='old',action='read',iostat=ier)
     if (ier /= 0) then
         write(*,*) 'Error opening "', trim(THREE_D_MODEL), '": ', ier
-        stop 'Unkown model'
+        stop 'Unknown model'
     endif
     read(IIN,*) (dummy(k),k=1,4)
     do k = 0,NK
