@@ -1,0 +1,97 @@
+#!/bin/csh -f
+
+set mindist = 40
+set maxdist = 120
+if ( 1 == 0 ) then
+#- File that must contain the following information:
+#- CMT, STATION NAME, EVT LAT, EVT LON, EVT DEPTH, STA LAT, STA LON, STA ELEV
+#- ex: 011288A HRV -28.7057 -177.452 26.8 42.5064 -71.5583 0.2
+./mkstat $cmt   5  > eventinfo
+./mkstat $cmt  25 >> eventinfo
+./mkstat $cmt  45 >> eventinfo
+./mkstat $cmt  65 >> eventinfo
+./mkstat $cmt  85 >> eventinfo
+./mkstat $cmt 105 >> eventinfo
+./mkstat $cmt 125 >> eventinfo
+./mkstat $cmt 145 >> eventinfo
+./mkstat $cmt 165 >> eventinfo
+./mkstat $cmt 185 >> eventinfo
+./mkstat $cmt 205 >> eventinfo
+./mkstat $cmt 225 >> eventinfo
+./mkstat $cmt 245 >> eventinfo
+./mkstat $cmt 265 >> eventinfo
+./mkstat $cmt 285 >> eventinfo
+./mkstat $cmt 305 >> eventinfo
+./mkstat $cmt 325 >> eventinfo
+./mkstat $cmt 345 >> eventinfo
+endif
+
+set phase   = "S"
+set taupphs = "S,Sdiff"
+set phase   = "P"
+set taupphs = "P,Pdiff"
+
+set cmt  = $1
+set clbl = $2
+# -- include effects from crust1.0 or not
+if      ( $clbl == 'crust') then
+  set crust = true
+else if ( $clbl == 'nocrust') then
+  set crust = false
+else
+  echo Define CLBL!!
+  exit(0)
+endif
+echo clbl= $clbl
+echo crust= $crust
+
+#- Directory of models to work on
+set sph_dir = /geo/home/jritsema/Research/Sdiff_Pdiff_SEM/SPH_models
+#- S12
+set model = s20_l12
+#- P12
+set model = p12_linear_1.00_0.33
+set model = $3
+
+echo "simpson" >  input
+echo "PREM"    >> input
+echo $model    >> input
+echo $crust    >> input
+echo $phase    >> input
+echo "sph"     >> input
+
+
+/bin/rm Ray.$model.$phase.$cmt.$clbl
+
+cp  $sph_dir/$model.sph models/.
+echo Working on Ray.$model cmt= $cmt phase= $phase clbl= $clbl
+
+
+set evla = `cat eventinfo | cut -d ' ' -f 3`
+set evlo = `cat eventinfo | cut -d ' ' -f 4`
+set evdp = `cat eventinfo | cut -d ' ' -f 5`
+set stla = `cat eventinfo | cut -d ' ' -f 6`
+set stlo = `cat eventinfo | cut -d ' ' -f 7`
+
+set i = 1
+set nlines = `wc -l eventinfo | awk '{print $1}'`
+echo 'Number of records: ' $nlines
+
+while ( $i <= $nlines )
+
+  echo $i $cmt "XXXX" $evla[$i] $evlo[$i] $evdp[$i] $stla[$i] $stlo[$i] "0.0" > evt
+  /geo/home/jritsema/src/calc_ttc_fft_dsm_1.2/xcalc_epdist > calc_dist
+  set dist  = `cat calc_dist`
+
+  if ( $dist >= $mindist & $dist <= $maxdist ) then
+    taup_path -mod prem -h $evdp[$i] -evt $evla[$i] $evlo[$i] -sta $stla[$i] $stlo[$i] -ph $taupphs -o trash1.gmt
+    sed '1d' trash1.gmt > trash6
+    sed -n '1,/>/p' trash6 | sed '/>/,$d' > raypath
+    cat raypath | wc -l > noflines
+    /bin/rm trash1.gmt trash6
+    	
+    ./xumich_cj_ttc >> Ray.$model.$phase.$cmt.$clbl
+    tail -1            Ray.$model.$phase.$cmt.$clbl
+  endif
+  @ i++
+end

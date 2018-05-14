@@ -1,0 +1,129 @@
+GFORTRAN module version '0' created from reads362ani.f90 on Thu Mar  2 13:42:00 2017
+MD5:efbd56064e7ffab87c79c5035f4a9191 -- If you edit this, you'll get what you deserve.
+
+(() () () () () () () () () () () () () () () () () () () () () () () ()
+() () ())
+
+()
+
+()
+
+()
+
+()
+
+(2 'coe' 'model_s362ani_par' 'coe' 1 ((VARIABLE UNKNOWN-INTENT
+UNKNOWN-PROC UNKNOWN UNKNOWN ALLOCATABLE DIMENSION) (REAL 4 0 0 REAL ())
+0 0 () (2 DEFERRED () () () ()) 0 () () () 0 0)
+3 'conpt' 'model_s362ani_par' 'conpt' 1 ((VARIABLE UNKNOWN-INTENT
+UNKNOWN-PROC UNKNOWN UNKNOWN ALLOCATABLE DIMENSION) (REAL 4 0 0 REAL ())
+0 0 () (2 DEFERRED () () () ()) 0 () () () 0 0)
+4 'dskker' 'model_s362ani_par' 'dskker' 1 ((VARIABLE UNKNOWN-INTENT
+UNKNOWN-PROC UNKNOWN UNKNOWN DIMENSION) (CHARACTER 1 0 0 CHARACTER ((
+CONSTANT (INTEGER 4 0 0 INTEGER ()) 0 '40'))) 0 0 () (1 EXPLICIT (
+CONSTANT (INTEGER 4 0 0 INTEGER ()) 0 '1') (CONSTANT (INTEGER 4 0 0
+INTEGER ()) 0 '200')) 0 () () () 0 0)
+5 'hsplfl' 'model_s362ani_par' 'hsplfl' 1 ((VARIABLE UNKNOWN-INTENT
+UNKNOWN-PROC UNKNOWN UNKNOWN DIMENSION) (CHARACTER 1 0 0 CHARACTER ((
+CONSTANT (INTEGER 4 0 0 INTEGER ()) 0 '80'))) 0 0 () (1 EXPLICIT (
+CONSTANT (INTEGER 4 0 0 INTEGER ()) 0 '1') (CONSTANT (INTEGER 4 0 0
+INTEGER ()) 0 '2')) 0 () () () 0 0)
+6 'iconpt' 'model_s362ani_par' 'iconpt' 1 ((VARIABLE UNKNOWN-INTENT
+UNKNOWN-PROC UNKNOWN UNKNOWN ALLOCATABLE DIMENSION) (INTEGER 4 0 0
+INTEGER ()) 0 0 () (2 DEFERRED () () () ()) 0 () () () 0 0)
+7 'ihpakern' 'model_s362ani_par' 'ihpakern' 1 ((VARIABLE UNKNOWN-INTENT
+UNKNOWN-PROC UNKNOWN UNKNOWN ALLOCATABLE DIMENSION) (INTEGER 4 0 0
+INTEGER ()) 0 0 () (1 DEFERRED () ()) 0 () () () 0 0)
+8 'itpspl' 'model_s362ani_par' 'itpspl' 1 ((VARIABLE UNKNOWN-INTENT
+UNKNOWN-PROC UNKNOWN UNKNOWN ALLOCATABLE DIMENSION) (INTEGER 4 0 0
+INTEGER ()) 0 0 () (2 DEFERRED () () () ()) 0 () () () 0 0)
+9 'itypehpa' 'model_s362ani_par' 'itypehpa' 1 ((VARIABLE UNKNOWN-INTENT
+UNKNOWN-PROC UNKNOWN UNKNOWN DIMENSION) (INTEGER 4 0 0 INTEGER ()) 0 0 ()
+(1 EXPLICIT (CONSTANT (INTEGER 4 0 0 INTEGER ()) 0 '1') (CONSTANT (
+INTEGER 4 0 0 INTEGER ()) 0 '2')) 0 () () () 0 0)
+10 'ivarkern' 'model_s362ani_par' 'ivarkern' 1 ((VARIABLE UNKNOWN-INTENT
+UNKNOWN-PROC UNKNOWN UNKNOWN ALLOCATABLE DIMENSION) (INTEGER 4 0 0
+INTEGER ()) 0 0 () (1 DEFERRED () ()) 0 () () () 0 0)
+11 'kerstr' 'model_s362ani_par' 'kerstr' 1 ((VARIABLE UNKNOWN-INTENT
+UNKNOWN-PROC UNKNOWN UNKNOWN) (CHARACTER 1 0 0 CHARACTER ((CONSTANT (
+INTEGER 4 0 0 INTEGER ()) 0 '80'))) 0 0 () () 0 () () () 0 0)
+12 'lmxhpa' 'model_s362ani_par' 'lmxhpa' 1 ((VARIABLE UNKNOWN-INTENT
+UNKNOWN-PROC UNKNOWN UNKNOWN DIMENSION) (INTEGER 4 0 0 INTEGER ()) 0 0 ()
+(1 EXPLICIT (CONSTANT (INTEGER 4 0 0 INTEGER ()) 0 '1') (CONSTANT (
+INTEGER 4 0 0 INTEGER ()) 0 '2')) 0 () () () 0 0)
+13 'maxcoe' 'model_s362ani_par' 'maxcoe' 1 ((PARAMETER UNKNOWN-INTENT
+UNKNOWN-PROC UNKNOWN IMPLICIT-SAVE) (INTEGER 4 0 0 INTEGER ()) 0 0 () (
+CONSTANT (INTEGER 4 0 0 INTEGER ()) 0 '2000') () 0 () () () 0 0)
+14 'maxhpa' 'model_s362ani_par' 'maxhpa' 1 ((PARAMETER UNKNOWN-INTENT
+UNKNOWN-PROC UNKNOWN IMPLICIT-SAVE) (INTEGER 4 0 0 INTEGER ()) 0 0 () (
+CONSTANT (INTEGER 4 0 0 INTEGER ()) 0 '2') () 0 () () () 0 0)
+15 'maxker' 'model_s362ani_par' 'maxker' 1 ((PARAMETER UNKNOWN-INTENT
+UNKNOWN-PROC UNKNOWN IMPLICIT-SAVE) (INTEGER 4 0 0 INTEGER ()) 0 0 () (
+CONSTANT (INTEGER 4 0 0 INTEGER ()) 0 '200') () 0 () () () 0 0)
+16 'maxl' 'model_s362ani_par' 'maxl' 1 ((PARAMETER UNKNOWN-INTENT
+UNKNOWN-PROC UNKNOWN IMPLICIT-SAVE) (INTEGER 4 0 0 INTEGER ()) 0 0 () (
+CONSTANT (INTEGER 4 0 0 INTEGER ()) 0 '72') () 0 () () () 0 0)
+17 'maxver' 'model_s362ani_par' 'maxver' 1 ((PARAMETER UNKNOWN-INTENT
+UNKNOWN-PROC UNKNOWN IMPLICIT-SAVE) (INTEGER 4 0 0 INTEGER ()) 0 0 () (
+CONSTANT (INTEGER 4 0 0 INTEGER ()) 0 '1000') () 0 () () () 0 0)
+18 'model_s362ani_par' 'model_s362ani_par' 'model_s362ani_par' 1 ((
+MODULE UNKNOWN-INTENT UNKNOWN-PROC UNKNOWN UNKNOWN) (UNKNOWN 0 0 0
+UNKNOWN ()) 0 0 () () 0 () () () 0 0)
+19 'nconpt' 'model_s362ani_par' 'nconpt' 1 ((VARIABLE UNKNOWN-INTENT
+UNKNOWN-PROC UNKNOWN UNKNOWN DIMENSION) (INTEGER 4 0 0 INTEGER ()) 0 0 ()
+(1 EXPLICIT (CONSTANT (INTEGER 4 0 0 INTEGER ()) 0 '1') (CONSTANT (
+INTEGER 4 0 0 INTEGER ()) 0 '2')) 0 () () () 0 0)
+20 'numcoe' 'model_s362ani_par' 'numcoe' 1 ((VARIABLE UNKNOWN-INTENT
+UNKNOWN-PROC UNKNOWN UNKNOWN DIMENSION) (INTEGER 4 0 0 INTEGER ()) 0 0 ()
+(1 EXPLICIT (CONSTANT (INTEGER 4 0 0 INTEGER ()) 0 '1') (CONSTANT (
+INTEGER 4 0 0 INTEGER ()) 0 '2')) 0 () () () 0 0)
+21 'numhpa' 'model_s362ani_par' 'numhpa' 1 ((VARIABLE UNKNOWN-INTENT
+UNKNOWN-PROC UNKNOWN UNKNOWN) (INTEGER 4 0 0 INTEGER ()) 0 0 () () 0 ()
+() () 0 0)
+22 'numker' 'model_s362ani_par' 'numker' 1 ((VARIABLE UNKNOWN-INTENT
+UNKNOWN-PROC UNKNOWN UNKNOWN) (INTEGER 4 0 0 INTEGER ()) 0 0 () () 0 ()
+() () 0 0)
+23 'radspl' 'model_s362ani_par' 'radspl' 1 ((VARIABLE UNKNOWN-INTENT
+UNKNOWN-PROC UNKNOWN UNKNOWN ALLOCATABLE DIMENSION) (REAL 4 0 0 REAL ())
+0 0 () (2 DEFERRED () () () ()) 0 () () () 0 0)
+24 'refmdl' 'model_s362ani_par' 'refmdl' 1 ((VARIABLE UNKNOWN-INTENT
+UNKNOWN-PROC UNKNOWN UNKNOWN) (CHARACTER 1 0 0 CHARACTER ((CONSTANT (
+INTEGER 4 0 0 INTEGER ()) 0 '80'))) 0 0 () () 0 () () () 0 0)
+25 'varstr' 'model_s362ani_par' 'varstr' 1 ((VARIABLE UNKNOWN-INTENT
+UNKNOWN-PROC UNKNOWN UNKNOWN DIMENSION) (CHARACTER 1 0 0 CHARACTER ((
+CONSTANT (INTEGER 4 0 0 INTEGER ()) 0 '40'))) 0 0 () (1 EXPLICIT (
+CONSTANT (INTEGER 4 0 0 INTEGER ()) 0 '1') (CONSTANT (INTEGER 4 0 0
+INTEGER ()) 0 '200')) 0 () () () 0 0)
+26 'vercof' 'model_s362ani_par' 'vercof' 1 ((VARIABLE UNKNOWN-INTENT
+UNKNOWN-PROC UNKNOWN UNKNOWN ALLOCATABLE DIMENSION) (REAL 4 0 0 REAL ())
+0 0 () (1 DEFERRED () ()) 0 () () () 0 0)
+27 'vercofd' 'model_s362ani_par' 'vercofd' 1 ((VARIABLE UNKNOWN-INTENT
+UNKNOWN-PROC UNKNOWN UNKNOWN ALLOCATABLE DIMENSION) (REAL 4 0 0 REAL ())
+0 0 () (1 DEFERRED () ()) 0 () () () 0 0)
+28 'wk1' 'model_s362ani_par' 'wk1' 1 ((VARIABLE UNKNOWN-INTENT
+UNKNOWN-PROC UNKNOWN UNKNOWN ALLOCATABLE DIMENSION) (REAL 4 0 0 REAL ())
+0 0 () (1 DEFERRED () ()) 0 () () () 0 0)
+29 'wk2' 'model_s362ani_par' 'wk2' 1 ((VARIABLE UNKNOWN-INTENT
+UNKNOWN-PROC UNKNOWN UNKNOWN ALLOCATABLE DIMENSION) (REAL 4 0 0 REAL ())
+0 0 () (1 DEFERRED () ()) 0 () () () 0 0)
+30 'wk3' 'model_s362ani_par' 'wk3' 1 ((VARIABLE UNKNOWN-INTENT
+UNKNOWN-PROC UNKNOWN UNKNOWN ALLOCATABLE DIMENSION) (REAL 4 0 0 REAL ())
+0 0 () (1 DEFERRED () ()) 0 () () () 0 0)
+31 'xlaspl' 'model_s362ani_par' 'xlaspl' 1 ((VARIABLE UNKNOWN-INTENT
+UNKNOWN-PROC UNKNOWN UNKNOWN ALLOCATABLE DIMENSION) (REAL 4 0 0 REAL ())
+0 0 () (2 DEFERRED () () () ()) 0 () () () 0 0)
+32 'xlospl' 'model_s362ani_par' 'xlospl' 1 ((VARIABLE UNKNOWN-INTENT
+UNKNOWN-PROC UNKNOWN UNKNOWN ALLOCATABLE DIMENSION) (REAL 4 0 0 REAL ())
+0 0 () (2 DEFERRED () () () ()) 0 () () () 0 0)
+33 'ylmcof' 'model_s362ani_par' 'ylmcof' 1 ((VARIABLE UNKNOWN-INTENT
+UNKNOWN-PROC UNKNOWN UNKNOWN ALLOCATABLE DIMENSION) (REAL 4 0 0 REAL ())
+0 0 () (2 DEFERRED () () () ()) 0 () () () 0 0)
+)
+
+('coe' 0 2 'conpt' 0 3 'dskker' 0 4 'hsplfl' 0 5 'iconpt' 0 6 'ihpakern'
+0 7 'itpspl' 0 8 'itypehpa' 0 9 'ivarkern' 0 10 'kerstr' 0 11 'lmxhpa' 0
+12 'maxcoe' 0 13 'maxhpa' 0 14 'maxker' 0 15 'maxl' 0 16 'maxver' 0 17
+'model_s362ani_par' 0 18 'nconpt' 0 19 'numcoe' 0 20 'numhpa' 0 21
+'numker' 0 22 'radspl' 0 23 'refmdl' 0 24 'varstr' 0 25 'vercof' 0 26
+'vercofd' 0 27 'wk1' 0 28 'wk2' 0 29 'wk3' 0 30 'xlaspl' 0 31 'xlospl' 0
+32 'ylmcof' 0 33)

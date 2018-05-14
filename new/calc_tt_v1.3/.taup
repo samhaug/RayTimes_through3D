@@ -1,0 +1,21 @@
+taup.depth.precision=8
+
+# precision for distance output, default is 2 decimal digits.
+# note that this is precision, not accuracy. Just because you get more
+# digits doesn't imply that they have any meaning
+taup.depth.precision=3
+
+# precision for latitude and longitude output, default is 2 decimal digits.
+# note that this is precision, not accuracy. Just because you get more
+# digits doesn't imply that they have any meaning
+taup.latlon.precision=3
+
+# precision for time, default is 2 decimal digits.
+# note that this is precision, not accuracy. Just because you get more
+# digits doesn't imply that they have any meaning
+#taup.time.precision=8
+
+# precision for ray parameter, default is 3 decimal digits.
+# note that this is precision, not accuracy. Just because you get more
+# digits doesn't imply that they have any meaning
+#taup.rayparam.precision=8

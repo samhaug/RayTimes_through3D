@@ -1,0 +1,7 @@
+#!/bin/csh -f
+
+foreach cmt ( 030302C 052413B 080596G 081994B 083094E )
+./do_jeroen_P $cmt nocrust p12_linear_1.00_0.33
+./do_jeroen_P $cmt nocrust p12_linear_1.00_0.50
+./do_jeroen_P $cmt nocrust p12_linear_1.00_1.00
+end

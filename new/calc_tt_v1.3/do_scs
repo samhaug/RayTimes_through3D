@@ -1,0 +1,57 @@
+#!/bin/csh -f
+
+set phase   = "P"
+set taupphs = "P,Pdiff"
+set phase   = "S"
+set taupphs = "S,Sdiff"
+set phase   = "ScS"
+set taupphs = "ScS"
+
+set clbl = nocrust
+# -- include effects from crust1.0 or not
+if      ( $clbl == 'crust') then
+  set crust = true
+else if ( $clbl == 'nocrust') then
+  set crust = false
+else
+  echo Define CLBL!!
+  exit(0)
+endif
+echo clbl= $clbl
+echo crust= $crust
+
+set model = S40RTS
+
+echo "simpson" >  input
+echo "PREM"    >> input
+echo $model    >> input
+echo $crust    >> input
+echo $phase    >> input
+echo "sph"     >> input
+
+echo $model phase= $phase
+
+rm iii
+
+@ lat = -91
+while ($lat < 90)
+  @ lat++
+
+  @ lon = -181
+  while ($lon < 180)
+    @ lon++
+
+echo lat= $lat lon= $lon
+echo 1 "XXXXXXX" "XXXX" $lat $lon 0. $lat $lon "0.0" > evt
+
+echo taup_path -mod prem -h 0 -evt $lat $lon -sta $lat ${lon}.1 -ph $taupphs -o trash1.gmt
+     taup_path -mod prem -h 0 -evt $lat $lon -sta $lat ${lon}.1 -ph $taupphs -o trash1.gmt
+sed '1d' trash1.gmt > trash6
+sed -n '1,/>/p' trash6 | sed '/>/,$d' > raypath
+cat raypath | wc -l > noflines
+./xumich_cj_ttc >> iii
+tail -1 iii
+
+
+end
+end

@@ -1,0 +1,21 @@
+#!/bin/bash -f
+
+#**********************************************************************************************************
+#  genraypath
+#  A routine to generate raypaths using Taup routine. 
+#  Created by Carlos Alberto Chaves on 07/01/2014.
+#  University of Sao Paulo - University of Michigan
+#  carlos.chaves@iag.usp.br; cchaves@umich.edu; calbertochaves@gmail.com (main)
+#  version 1.0
+# **********************************************************************************************************
+
+phase=ScS
+model=prem
+raypath=$1
+infile=$2
+lines=$(cat $raypath | wc -l)
+#echo $raypath
+#echo $infile
+
+
+/home/samhaug/RayTimes_through3D/xumich_cj_ttc $lines $raypath $infile >> out

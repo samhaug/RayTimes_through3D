@@ -1,0 +1,49 @@
+#!/bin/csh -f
+
+alias MATH 'set \!:1 = `echo "\!:3-$" | bc -l`'
+#**********************************************************************************************************
+#  genraypath
+#  A routine to generate raypaths using Taup routine. 
+#  Created by Carlos Alberto Chaves on 07/01/2014.
+#  University of Sao Paulo - University of Michigan
+#  carlos.chaves@iag.usp.br; cchaves@umich.edu; calbertochaves@gmail.com (main)
+#  version 1.0
+# **********************************************************************************************************
+
+
+gfortran -c prem.f90
+gfortran -c stw105.f90
+gfortran -c reads362ani.f90
+gfortran -O3 -Wall -Wtabs umich_cj_ttc.f90 prem.o stw105.o reads362ani.o -o xumich_cj_ttc
+
+set phase = S
+set model = prem
+set filetaup = eventinfo.txt #This file contains information regarding events and stations
+set it = 1
+foreach line ( "`cat ${filetaup}`" )
+	set argv = ( $line )
+	set depth = $1
+	set evla = $2
+	set evlo = $3
+	set stla = $4
+	set stlo = $5
+	echo $it ${depth} ${evla} ${evlo} ${stla} ${stlo} > evt
+	
+	taup_path -mod ${model} -h ${depth} -evt ${evla} ${evlo} -sta ${stla} ${stlo} -ph ${phase} -o trash1
+
+	sed '1d' trash1.gmt > trash6.txt 
+	sed -n '1,/>/p' trash6.txt | sed '/>/,$d' > raypath
+	cat raypath | wc -l > noflines
+	rm trash*
+	if ( $it > 1 ) then
+		./xumich_cj_ttc >> ttc_file
+	else
+		./xumich_cj_ttc > ttc_file
+	endif	
+	@ it++
+end
+echo "Done!"  
+
+ 
+
+

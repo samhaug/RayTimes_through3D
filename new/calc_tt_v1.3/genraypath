@@ -1,0 +1,66 @@
+#!/bin/csh -f
+
+alias MATH 'set \!:1 = `echo "\!:3-$" | bc -l`'
+
+#Event format file
+#CMT, STATION NAME, EVT LAT, EVT LON, EVT DEPTH, STA LAT, STA LON, STA ELEV
+#ex: 011288A HRV -28.7057 -177.452 26.8 42.5064 -71.5583 0.2
+
+
+gfortran -c prem.f90
+gfortran -c stw105.f90
+gfortran -c reads362ani.f90
+gfortran -O3 -Wall -Wtabs umich_cj_ttc.f90 prem.o stw105.o reads362ani.o -o xumich_cj_ttc
+
+pause
+
+
+set intmethod = simpson
+set onedmodel = PREM
+set threedmodel = S40RTS
+set phase = S
+set kfile = sph
+set crust = 'false'
+
+echo $intmethod > input
+echo $onedmodel >> input
+echo $threedmodel >> input
+echo $crust >> input
+echo $phase >> input
+echo $kfile >> input 
+
+set phases = 'SS'
+set model = prem
+set filetaup = SS_and_prec_info.txt #This file contains information regarding events and stations
+set it = 1
+
+foreach line ( "`cat ${filetaup}`" )
+	set argv = ( $line )
+	set cmtcode = $1
+	set staname = $2
+	set evtla = $3
+	set evtlo = $4
+	set depth = $5
+	set stala = $6
+	set stalo = $7
+	set staelv = $8
+	echo $it $cmtcode $staname $evtla $evtlo $depth $stala $stalo $staelv > evt
+	
+	taup_path -mod ${model} -h ${depth} -evt ${evtla} ${evtlo} -sta ${stala} ${stalo} -ph ${phases} -o trash1.gmt
+
+	sed '1d' trash1.gmt > trash6.txt 
+	sed -n '1,/>/p' trash6.txt | sed '/>/,$d' > raypath
+	cat raypath | wc -l > noflines
+	rm trash*
+	if ( $it > 1 ) then
+		./xumich_cj_ttc >> ttc_file_${threedmodel}_${phases}
+	else
+		./xumich_cj_ttc > ttc_file_${threedmodel}_${phases}
+	endif	
+	@ it++
+end
+echo "Done!"  
+
+ 
+
+

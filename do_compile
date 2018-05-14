@@ -1,0 +1,8 @@
+#!/bin/csh -f
+
+gfortran -c -O2 ./src/prem.f90
+gfortran -c -O2 ./src/stw105.f90
+gfortran -c -O2 ./src/reads362ani.f90
+gfortran -O2 ./src/umich_cj_ttc.f90 prem.o stw105.o reads362ani.o -o ./xumich_cj_ttc
+
+/bin/rm *.o

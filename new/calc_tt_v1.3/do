@@ -1,0 +1,59 @@
+#!/bin/csh -f
+
+set phase   = "P"
+set taupphs = "P,Pdiff"
+set phase   = "S"
+set taupphs = "S,Sdiff"
+set phase   = "ScS"
+set taupphs = "ScS"
+
+set clbl = nocrust
+# -- include effects from crust1.0 or not
+if      ( $clbl == 'crust') then
+  set crust = true
+else if ( $clbl == 'nocrust') then
+  set crust = false
+else
+  echo Define CLBL!!
+  exit(0)
+endif
+echo clbl= $clbl
+echo crust= $crust
+
+#- Directory of models to work on
+set sph_dir = /geo/home/jritsema/Research/Sdiff_Pdiff_SEM/SPH_models
+#- S12
+set model = s20_l12
+#set phase = "S,Sdiff"
+
+echo "simpson" >  input
+echo "PREM"    >> input
+echo $model    >> input
+echo $crust    >> input
+echo $phase    >> input
+echo "sph"     >> input
+
+
+
+cp  $sph_dir/$model.sph models/.
+echo Working on Ray.$model phase= $phase
+
+
+set evla = $1
+set evlo = $2
+set evdp = $3
+set stla = $4
+set stlo = $5
+
+set i = 1
+
+echo $i "XXXXXXX" "XXXX" $evla[$i] $evlo[$i] $evdp[$i] $stla[$i] $stlo[$i] "0.0" > evt
+/geo/home/jritsema/src/calc_ttc_fft_dsm_1.2/xcalc_epdist > calc_dist
+set dist  = `cat calc_dist`
+
+taup_path -mod prem -h $evdp[$i] -evt $evla[$i] $evlo[$i] -sta $stla[$i] $stlo[$i] -ph $taupphs -o trash1.gmt
+sed '1d' trash1.gmt > trash6
+sed -n '1,/>/p' trash6 | sed '/>/,$d' > raypath
+cat raypath | wc -l > noflines
+/bin/rm trash1.gmt trash6
+./xumich_cj_ttc
